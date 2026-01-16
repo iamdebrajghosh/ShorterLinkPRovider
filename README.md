@@ -1,7 +1,7 @@
 # ShorterLinkProvider
 
-🔗 ShorterLinkPRovider
-ShorterLinkPRovider is a fast and efficient URL shortening service built using the MEN stack (MongoDB, Express, Node.js). It allows users to convert long, cumbersome URLs into neat, short links that are easy to share and track.
+🔗 ShorterLinkProvider
+ is a fast and efficient URL shortening service built using the MEN stack (MongoDB, Express, Node.js). It allows users to convert long, cumbersome URLs into neat, short links that are easy to share and track.
 
 🌟 Features
 URL Shortening: Generate unique short codes for long URLs.
@@ -104,4 +104,5 @@ Debraj Ghosh
 GitHub: @iamdebrajghosh
 
 If you liked this project, feel free to give it a ⭐!
+
 
