@@ -2,7 +2,7 @@ const express = require('express');
 const path = require('path');
 const cookieParser = require('cookie-parser');
 const {connectToMongoDB} = require('./connect');
-const {restrictToLoggedinUserOnly, checkAuth} = require('./middlewares/auth');
+const { checkFroAuthentication, restrictToLoggedinUserOnly } = require('./middlewares/auth');
 const URL = require('./models/url');
 
 
@@ -25,10 +25,11 @@ app.set('views', path.resolve("./views"));
 app.use(express.json());
 app.use(express.urlencoded({extended: false}));
 app.use(cookieParser());
+app.use(checkFroAuthentication);
 
-app.use("/url", restrictToLoggedinUserOnly, urlRoute);
+app.use("/url",restrictToLoggedinUserOnly(['NORMAL', 'ADMIN']), urlRoute);
 app.use("/user", userRoute);
-app.use("/", checkAuth, staticRouter);
+app.use("/", staticRouter);
 
 app.get('/url/:shortId', async(req, res) => {
     const shortId = req.params.shortId;
